@@ -19,7 +19,9 @@ class ProjectsController < ApplicationController
       flash[:notice] = "The project was successfully created!"
       redirect_to @project
     else
-      
+      # byebug
+      flash.now[:alert] = "Project has not been created."
+      render :new
     end
   end
 
