@@ -1,8 +1,14 @@
 class ProjectsController < ApplicationController
-  before_action :get_project, only: [:show, :edit, :update]
+  before_action :get_project, only: [:show, :edit, :update, :destroy]
 
   def index
     @projects = Project.all
+    respond_to do |format|
+      format.json do 
+        render json: @projects.to_json
+      end
+      format.html
+    end
   end
 
   def new
@@ -10,6 +16,22 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.json do
+        render json: @project.to_json
+      end
+      format.html
+    end
+  end
+
+  def destroy
+    if @project.destroy
+      flash[:notice] = "Project has been deleted."
+      redirect_to projects_path
+    else
+      flash[:notice] = "Something went wrong."
+      render :delete
+    end
   end
 
   def edit
