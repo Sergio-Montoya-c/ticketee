@@ -1,3 +1,25 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+h1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+.alert-notice {
+  @extend .alert-success;
+}
