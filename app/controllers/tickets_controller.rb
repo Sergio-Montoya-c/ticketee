@@ -7,7 +7,9 @@ class TicketsController < ApplicationController
   end
 
   def show
+  end
 
+  def index 
   end
 
   def create
