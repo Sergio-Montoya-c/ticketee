@@ -1,19 +1,22 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Raleway");
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
 
+@import "utils/reset";
+
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 h1 {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .alert-alert {
@@ -22,4 +25,8 @@ h1 {
 
 .alert-notice {
   @extend .alert-success;
+}
+
+.navbar-brand {
+  font-size: 25px;
 }

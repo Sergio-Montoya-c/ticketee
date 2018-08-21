@@ -3,6 +3,7 @@
   <h1>
     <%= @project.name %>
     <div>
+      <%= link_to 'New Ticket', new_project_ticket_path(@project), class: 'btn btn-primary' %>
       <%= link_to 'Edit Project', edit_project_path(@project), class: 'btn btn-primary' %>
       <%= link_to 'Delete Project', project_path(@project), method: :delete, data: { confirm: "Are you sure you want to delete this project?" }, class: 'btn btn-danger' %>
     </div>
@@ -10,3 +11,9 @@
 </div>
 
 <p><%= @project.description %></p>
+
+<ul>
+  <% @project.tickets.each do |ticket| %>
+    <li><%= link_to ticket.name, [@project, ticket] %></li>
+  <% end %>
+</ul>
