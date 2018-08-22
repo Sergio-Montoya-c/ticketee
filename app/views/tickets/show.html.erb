@@ -3,7 +3,7 @@
   <h1>
     <%= @ticket.name %> 
     <div>
-      <%= link_to 'Edit Ticket', [@project, @ticket], class: 'btn btn-primary' %>
+      <%= link_to 'Edit Ticket', edit_project_ticket_path, class: 'btn btn-primary' %>
       <%= link_to 'Delete Ticket', [@project, @ticket], class: 'btn btn-danger', method: :delete, data: { confirm: "Are you sure you want to delete this ticket?" } %>
     </div>
   </h1>
