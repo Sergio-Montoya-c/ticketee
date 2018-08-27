@@ -1,14 +1,27 @@
-<div class='page-header'>
-  <%= link_to 'Return to ' + @project.name, @project  %>
-  <h1>
-    <%= @ticket.name %> 
-    <div>
-      <%= link_to 'Edit Ticket', edit_project_ticket_path, class: 'btn btn-primary' %>
-      <%= link_to 'Delete Ticket', [@project, @ticket], class: 'btn btn-danger', method: :delete, data: { confirm: "Are you sure you want to delete this ticket?" } %>
-    </div>
-  </h1>
-</div>
+<div class='ticket'>
+  <div class='page-header'>
+    <%= link_to 'Return to ' + @project.name, @project  %>
+    <h1>
+      <%= @ticket.name %> 
+      <div>
+        <%= link_to 'Edit Ticket', edit_project_ticket_path, class: 'btn btn-primary' %>
+        <%= link_to 'Delete Ticket', [@project, @ticket], class: 'btn btn-danger', method: :delete, data: { confirm: "Are you sure you want to delete this ticket?" } %>
+      </div>
+    </h1>
+  </div>
 
-<p>
-  <%= @ticket.description %>
-</p>
+  <p>
+    <%= @ticket.description %>
+  </p>
+
+  <table>
+    <tr>
+      <th>Author:</th>
+      <td><%= @ticket.author.email %></td>
+    </tr>
+    <tr>
+      <th>Created At:</th>
+      <td><%= time_ago_in_words(@ticket.created_at) %></td>
+    </tr>
+  </table>
+</div>

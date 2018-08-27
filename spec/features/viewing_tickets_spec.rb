@@ -1,11 +1,13 @@
 require 'rails_helper'
 
 RSpec.feature 'User can view tickets' do
+  let(:author) {FactoryBot.create(:user)}
+
   before do
     react_project = FactoryBot.create(:project, name: "React JS Project")
-    ticket = FactoryBot.create(:ticket, project: react_project, name: 'Create React App', description: 'Create a React application' )
+    ticket = FactoryBot.create(:ticket, project: react_project, name: 'Create React App', description: 'Create a React application', author: author )
     express_project = FactoryBot.create(:project, name: "Express Project ")
-    ticket = FactoryBot.create(:ticket, project: express_project, name: 'Create an express backend', description: 'Create an express backend' )
+    ticket = FactoryBot.create(:ticket, project: express_project, name: 'Create an express backend', description: 'Create an express backend', author: author )
 
     visit '/'
   end
