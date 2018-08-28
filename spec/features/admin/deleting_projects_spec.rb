@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature 'User can deleted project' do
+  before do
+    login_as(FactoryBot.create(:user, :admin))
+  end
+
   scenario 'successfully' do
     project = FactoryBot.create(:project, name: "Project to delete")
 
